@@ -9,7 +9,7 @@ import * as React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
-import "./layout.css"
+import { content } from "./styles.module.css"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -32,16 +32,15 @@ const Layout = ({ children }) => {
           padding: `var(--size-gutter)`,
         }}
       >
-        <main>{children}</main>
+        <main className={content}>{children}</main>
         <footer
           style={{
             marginTop: `var(--space-5)`,
             fontSize: `var(--font-sm)`,
           }}
         >
-          © {new Date().getFullYear()} &middot; Built with
-          {` `}
-          <a href="https://www.gatsbyjs.com">Gatsby</a>
+          © {new Date().getFullYear()} &middot; Built by
+          {` `} {data.site.siteMetadata?.author}
         </footer>
       </div>
     </>
