@@ -80,6 +80,17 @@ body {
   margin-bottom: 3rem;
 }
 
+.split {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.split section {
+  margin-bottom: 0; /* parent already has spacing */
+}
+
 /* Large fluid heading size */
 .content h1 {
   font-size: clamp(1.8rem, 1.4rem + 2vw, 2.8rem);
@@ -129,5 +140,10 @@ body {
   /* Reduce side padding on small screens */
   .content {
     padding: 1.5rem 1rem;
+  }
+
+  /* TODO: Make it so that image and text are in column on small screens. */
+  .split {
+    grid-template-columns: 1fr 1fr;
   }
 }
